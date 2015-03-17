@@ -16,19 +16,19 @@ function LateUpdate () {
         if(!waterWalk){
         if (!footsteps.isPlaying){
         footsteps.Play(); 
-        }else{
-         footsteps.Stop();
         }
         }else{
         if (!waterWade.isPlaying){
         waterWade.Play(); 
-        }else{
-         waterWade.Stop();
         }
         }
         
         }
-}
+     }else{
+        footsteps.Stop();
+        waterWade.Stop(); 
+        play=0;
+     }
 }
 function OnControllerColliderHit (floor : ControllerColliderHit)
 {
