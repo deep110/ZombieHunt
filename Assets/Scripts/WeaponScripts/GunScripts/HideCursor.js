@@ -1,4 +1,4 @@
 function Start ()
     {
-        Screen.showCursor = false;
+        Cursor.visible = false;
     }

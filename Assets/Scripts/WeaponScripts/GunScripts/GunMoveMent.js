@@ -17,12 +17,12 @@ function Update () {
 	if(count==0){
 	transform.localPosition = NewGunPos;
 	count=1;
-	MainCam.camera.fieldOfView = 40;
+	MainCam.GetComponent.<Camera>().fieldOfView = 40;
 	}
 	else{
 	transform.localPosition = DefaultPos;
 	count=0;
-	MainCam.camera.fieldOfView = 60;
+	MainCam.GetComponent.<Camera>().fieldOfView = 60;
 	}
 	}
 	

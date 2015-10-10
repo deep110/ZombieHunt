@@ -470,7 +470,7 @@ namespace DCM {
                         GameObject go = new GameObject("Combined " + dataByMaterial.Key.name + " Object " + index);
                         go.AddComponent<MeshFilter>().sharedMesh = m;
                         go.AddComponent<MeshRenderer>().sharedMaterial = dataByMaterial.Key;
-                        go.renderer.sharedMaterial.mainTexture = meshesByTexture.Key;
+                        go.GetComponent<Renderer>().sharedMaterial.mainTexture = meshesByTexture.Key;
                         
                         go.transform.parent = _hiddenCombinedObject.transform;
                         index++;
@@ -703,12 +703,12 @@ namespace DCM {
                 uvCopy [j].y = referencedTexturePosition.y + uvCopy [j].y * referencedTexturePosition.height;
             }
             modifiedMesh.uv = uvCopy;
-            uvCopy = modifiedMesh.uv1;
+            uvCopy = modifiedMesh.uv2;
             for (int j = 0; j < uvCopy.Length; j++) {
                 uvCopy [j].x = referencedTexturePosition.x + uvCopy [j].x * referencedTexturePosition.width;
                 uvCopy [j].y = referencedTexturePosition.y + uvCopy [j].y * referencedTexturePosition.height;
             }
-            modifiedMesh.uv1 = uvCopy;
+            modifiedMesh.uv2 = uvCopy;
         }
 
         /// <summary>
@@ -724,7 +724,7 @@ namespace DCM {
             newMesh.normals = original.normals;
             newMesh.colors32 = original.colors32;
             newMesh.uv = original.uv;
-            newMesh.uv1 = original.uv1;
+            newMesh.uv2 = original.uv2;
             newMesh.bounds = original.bounds;
             newMesh.subMeshCount = original.subMeshCount;
             newMesh.tangents = original.tangents;

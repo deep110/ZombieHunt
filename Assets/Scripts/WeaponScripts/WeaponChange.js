@@ -19,12 +19,12 @@ var WeaponChange:AudioSource;
  
  function SwapWeapons(){
  if (gun.active == true) {
- fieldOfView = MainCam.camera.fieldOfView;
- if(fieldOfView==40)MainCam.camera.fieldOfView=60;
+ fieldOfView = MainCam.GetComponent.<Camera>().fieldOfView;
+ if(fieldOfView==40)MainCam.GetComponent.<Camera>().fieldOfView=60;
  gun.SetActiveRecursively(false);
  axe.SetActiveRecursively(true);
  } else {
- if(fieldOfView==40)MainCam.camera.fieldOfView=40;
+ if(fieldOfView==40)MainCam.GetComponent.<Camera>().fieldOfView=40;
  gun.SetActiveRecursively(true);
  axe.SetActiveRecursively(false);
  }

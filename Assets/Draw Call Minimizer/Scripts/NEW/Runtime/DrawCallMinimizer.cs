@@ -59,7 +59,7 @@ namespace DCM {
         /// <param name="allMeshesAndMaterials">The dictionary that all of this information is going to be stored in</param>
         static void OrganizeObjects(MeshFilter[] filters, Matrix4x4 myTransform, IDictionary<string, Dictionary<Material, List<MeshInstance>>> allMeshesAndMaterials) {
             for (int i = 0; i < filters.Length; i++) {
-                Renderer curRenderer = filters [i].renderer;
+                Renderer curRenderer = filters [i].GetComponent<Renderer>();
                 MeshInstance instance = new MeshInstance();
                 instance.mesh = filters [i].mesh;
                 if (curRenderer != null && curRenderer.enabled && instance.mesh != null) {
@@ -160,12 +160,12 @@ namespace DCM {
                 uvCopy [j].y = referencedTexturePosition.y + uvCopy [j].y * referencedTexturePosition.height;
             }
             modifiedMesh.uv = uvCopy;
-            uvCopy = modifiedMesh.uv1;
+            uvCopy = modifiedMesh.uv2;
             for (int j = 0; j < uvCopy.Length; j++) {
                 uvCopy [j].x = referencedTexturePosition.x + uvCopy [j].x * referencedTexturePosition.width;
                 uvCopy [j].y = referencedTexturePosition.y + uvCopy [j].y * referencedTexturePosition.height;
             }
-            modifiedMesh.uv1 = uvCopy;
+            modifiedMesh.uv2 = uvCopy;
         }
     }
 }

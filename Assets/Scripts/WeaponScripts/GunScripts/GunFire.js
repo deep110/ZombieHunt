@@ -12,7 +12,7 @@ var damage:int = 50;
 
 function Update () {
 
-var ray : Ray = camera.main.ViewportPointToRay(Vector3(0.5, 0.5, 0));
+var ray : Ray = GetComponent.<Camera>().main.ViewportPointToRay(Vector3(0.5, 0.5, 0));
 Debug.DrawRay (ray.origin, ray.direction * 50, Color.red);
    if (Physics.Raycast(ray, hit, 100))
     {
@@ -25,13 +25,13 @@ spawnPointBullet.transform.LookAt(v3LookPoint);
 
 if(Input.GetButtonDown("Fire1")){
 var fireBullet = Instantiate(bulletPrefab, spawnPointBullet.transform.position,spawnPointBullet.transform.rotation);
-         fireBullet.rigidbody.AddRelativeForce (Vector3.forward * 1000);
+         fireBullet.GetComponent.<Rigidbody>().AddRelativeForce (Vector3.forward * 1000);
          gunShot.Play();
          gunFired=true;
         // particleSystem.Play();
 }
 if(gunFired){
-var ray1 : Ray = camera.main.ViewportPointToRay(Vector3(0.5, 0.5, 0));
+var ray1 : Ray = GetComponent.<Camera>().main.ViewportPointToRay(Vector3(0.5, 0.5, 0));
 if (Physics.Raycast(ray1, hit, 100)){
          if(hit.transform.tag == "Enemy"){
          ZombieDying.Play();

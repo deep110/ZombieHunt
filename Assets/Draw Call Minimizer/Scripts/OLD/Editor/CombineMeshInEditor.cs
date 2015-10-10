@@ -29,7 +29,7 @@ namespace DCM.Old {
         
             Dictionary<string, Dictionary<Material, List<MeshCombineUtility.MeshInstance>>> allMeshesAndMaterials = new Dictionary<string, Dictionary<Material, List<MeshCombineUtility.MeshInstance>>>();
             for (int i = 0; i < filters.Length; i++) {
-                Renderer curRenderer = filters [i].renderer;
+                Renderer curRenderer = filters [i].GetComponent<Renderer>();
                 MeshCombineUtility.MeshInstance instance = new MeshCombineUtility.MeshInstance();
             
                 instance.mesh = filters [i].sharedMesh;
@@ -97,13 +97,13 @@ namespace DCM.Old {
                     
                         meshIntermediates [j].mesh.uv = uvCopy;             
                     
-                        uvCopy = meshIntermediates [j].mesh.uv1;
+                        uvCopy = meshIntermediates [j].mesh.uv2;
                         for (int k = 0; k < uvCopy.Length; k++) {
                             uvCopy [k].x = refTexture.position.x + uvCopy [k].x * refTexture.position.width;
                             uvCopy [k].y = refTexture.position.y + uvCopy [k].y * refTexture.position.height;
                         }                   
                 
-                        meshIntermediates [j].mesh.uv1 = uvCopy;
+                        meshIntermediates [j].mesh.uv2 = uvCopy;
 
                         uvCopy = meshIntermediates [j].mesh.uv2;
                         for (int k = 0; k < uvCopy.Length; k++) {
@@ -135,7 +135,7 @@ namespace DCM.Old {
                     go.transform.localPosition = Vector3.zero;
                     MeshFilter filter = go.AddComponent<MeshFilter>();
                     go.AddComponent<MeshRenderer>();
-                    go.renderer.sharedMaterial = mat;
+                    go.GetComponent<Renderer>().sharedMaterial = mat;
 
                     filter.mesh = combinedMeshes [i];
                 }

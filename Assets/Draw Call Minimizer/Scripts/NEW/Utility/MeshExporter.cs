@@ -27,7 +27,7 @@ namespace DCM {
                 sb.Append(string.Format("vt {0} {1}\n", v.x, v.y));
             }
             sb.Append("\n");
-            foreach (Vector2 v in m.uv1) {
+            foreach (Vector2 v in m.uv2) {
                 sb.Append(string.Format("vt1 {0} {1}\n", v.x, v.y));
             }
             sb.Append("\n");

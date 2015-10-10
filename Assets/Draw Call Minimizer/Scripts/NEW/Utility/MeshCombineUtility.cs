@@ -67,7 +67,7 @@ namespace DCM {
                         Copy(combines [indexOffset].mesh.uv, uv);
 
                         if (combines [indexOffset].mesh.uv2.Length == combines [indexOffset].mesh.vertexCount) {
-                            Copy(combines [indexOffset].mesh.uv1, uv1);
+                            Copy(combines [indexOffset].mesh.uv2, uv1);
                         } else {
                             Vector2 defaultUV = Vector2.zero;
                             for (int j = 0; j < combines [indexOffset].mesh.vertexCount; j++) {
@@ -98,7 +98,7 @@ namespace DCM {
                 mesh.normals = normals.ToArray();
                 mesh.colors = colors.ToArray();
                 mesh.uv = uv.ToArray();
-                mesh.uv1 = uv1.ToArray();
+                mesh.uv2 = uv1.ToArray();
                 mesh.tangents = tangents.ToArray();
                 
                 mesh.triangles = triangles.ToArray();
